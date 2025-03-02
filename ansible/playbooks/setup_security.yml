@@ -1,0 +1,20 @@
+---
+- name: Configure security settings
+  hosts: all
+  become: yes
+  tasks:
+    - name: Ensure firewall is enabled
+      service:
+        name: firewalld
+        state: started
+        enabled: yes
+
+    - name: Allow necessary ports
+      firewalld:
+        port: "{{ item }}/tcp"
+        permanent: yes
+        state: enabled
+      loop:
+        - 80
+        - 443
+        - 22
