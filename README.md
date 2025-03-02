@@ -101,7 +101,7 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants :
 
 5. Automatisation CI/CD avec GitHub Actions
 
-    Si vous avez configuré des workflows GitHub Actions, ils seront déclenchés automatiquement lorsque vous pousserez des modifications vers le dépôt. Sinon, vous pouvez exécuter les workflows manuellement depuis l'interface GitHub.
+    Si vous avez configuré des workflows GitHub Actions, ils seront déclenchés automatiquement lorsque vous pousserez des modifications(`@domain`, `@realm`, `@ds-password`, `@admin-password`, `@provider`, etc.) vers le dépôt. Sinon, vous pouvez exécuter les workflows manuellement depuis l'interface GitHub.
 
 6. Sauvegarder, restaurer, erreurs et rollback
 
@@ -152,6 +152,7 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants :
 ## Note: (Automatisation finale)
 
 Une fois que tout fonctionne correctement, vous pouvez automatiser l'ensemble du processus en utilisant un pipeline CI/CD pour déployer et tester l'infrastructure à chaque modification du code.
+***Il faut bien s'assurez que vous éffectuer toutes les modifications selon votre environemment avant de tester votre infrastructure.***
 
 
 ## Appel aux contributeurs.
