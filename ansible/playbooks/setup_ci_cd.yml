@@ -1,0 +1,17 @@
+---
+- name: Setup CI/CD pipeline with GitHub Actions
+  hosts: localhost
+  tasks:
+    - name: Create GitHub Actions workflow directory
+      file:
+        path: .github/workflows
+        state: directory
+
+    - name: Copy CI/CD workflow files
+      copy:
+        src: "{{ item }}"
+        dest: .github/workflows/
+      loop:
+        - terraform.yml
+        - ansible.yml
+        - tests.yml
