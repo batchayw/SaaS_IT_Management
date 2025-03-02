@@ -101,7 +101,7 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants :
 
 5. Automatisation CI/CD avec GitHub Actions
 
-    Si vous avez configuré des workflows GitHub Actions, ils seront déclenchés automatiquement lorsque vous pousserez des modifications(`@domain`, `@realm`, `@ds-password`, `@admin-password`, `@provider`, etc.) vers le dépôt. Sinon, vous pouvez exécuter les workflows manuellement depuis l'interface GitHub.
+    Si vous avez configuré des workflows GitHub Actions, ils seront déclenchés automatiquement lorsque vous pousserez des modifications(`@domain`, `@realm`, `@ds-password`, `@admin-password`, `@provider`, `@resource`, `@network`, `@notification`, etc.) vers le dépôt. Sinon, vous pouvez exécuter les workflows manuellement depuis l'interface GitHub.
 
 6. Sauvegarder, restaurer, erreurs et rollback
 
