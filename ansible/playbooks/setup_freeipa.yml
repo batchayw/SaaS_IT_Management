@@ -1,0 +1,18 @@
+---
+- name: Install and configure FreeIPA
+  hosts: freeipa
+  become: yes
+  tasks:
+    - name: Install FreeIPA server
+      yum:
+        name: freeipa-server
+        state: present
+
+    - name: Setup FreeIPA server
+      command: ipa-server-install --domain=example.com --realm=EXAMPLE.COM --ds-password=password --admin-password=password --hostname=freeipa.example.com --setup-dns --no-forwarders --no-ntp --unattended
+
+    - name: Ensure FreeIPA service is running
+      service:
+        name: ipa
+        state: started
+        enabled: yes
