@@ -1,0 +1,26 @@
+---
+- name: Install and configure Prometheus and Grafana
+  hosts: monitoring
+  become: yes
+  tasks:
+    - name: Install Prometheus
+      yum:
+        name: prometheus
+        state: present
+
+    - name: Install Grafana
+      yum:
+        name: grafana
+        state: present
+
+    - name: Start Prometheus service
+      service:
+        name: prometheus
+        state: started
+        enabled: yes
+
+    - name: Start Grafana service
+      service:
+        name: grafana
+        state: started
+        enabled: yes
