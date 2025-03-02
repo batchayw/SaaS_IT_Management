@@ -1,0 +1,18 @@
+---
+- name: Install and configure OpenStack TripleO
+  hosts: openstack
+  become: yes
+  tasks:
+    - name: Install OpenStack TripleO
+      yum:
+        name: openstack-tripleo
+        state: present
+
+    - name: Deploy OpenStack
+      command: openstack undercloud install
+
+    - name: Ensure OpenStack services are running
+      service:
+        name: openstack-*
+        state: started
+        enabled: yes
