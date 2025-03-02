@@ -1,0 +1,18 @@
+---
+- name: Install and configure Foreman with Katello
+  hosts: foreman
+  become: yes
+  tasks:
+    - name: Install Foreman installer
+      yum:
+        name: foreman-installer
+        state: present
+
+    - name: Run Foreman installer
+      command: foreman-installer --enable-foreman-plugin-katello
+
+    - name: Ensure Foreman service is running
+      service:
+        name: foreman
+        state: started
+        enabled: yes
