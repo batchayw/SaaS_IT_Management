@@ -1,0 +1,37 @@
+---
+- name: Install and configure Elasticsearch, Fluentd, and Kibana
+  hosts: logging
+  become: yes
+  tasks:
+    - name: Install Elasticsearch
+      yum:
+        name: elasticsearch
+        state: present
+
+    - name: Install Fluentd
+      yum:
+        name: td-agent
+        state: present
+
+    - name: Install Kibana
+      yum:
+        name: kibana
+        state: present
+
+    - name: Start Elasticsearch service
+      service:
+        name: elasticsearch
+        state: started
+        enabled: yes
+
+    - name: Start Fluentd service
+      service:
+        name: td-agent
+        state: started
+        enabled: yes
+
+    - name: Start Kibana service
+      service:
+        name: kibana
+        state: started
+        enabled: yes
