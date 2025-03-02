@@ -36,7 +36,7 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants :
 
 2. Configurer l'inventaire Ansible
 
-    Modifiez le fichier `ansible/inventory/hosts.ini` pour refléter les adresses IP ou les noms d'hôte de vos serveurs.
+    Modifiez le fichier `ansible/inventory/hosts.ini` pour refléter les adresses IP (`@ip`) ou les noms d'hôte de vos serveurs (`@host`). Car ce qui là est juste utilisé comme exemple en fonction de mon environnement de test.
 
 3. Exécuter les playbooks Ansible
 
