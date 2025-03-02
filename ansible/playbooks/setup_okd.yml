@@ -1,0 +1,20 @@
+---
+- name: Install and configure OKD/OpenShift
+  hosts: okd
+  become: yes
+  tasks:
+    - name: Install OKD prerequisites
+      yum:
+        name:
+          - docker
+          - openshift
+        state: present
+
+    - name: Start Docker service
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Deploy OKD cluster
+      command: openshift-install create cluster --dir=/opt/okd
