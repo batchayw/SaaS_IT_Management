@@ -151,9 +151,13 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants :
 
 ## Note: (Automatisation finale)
 
-Une fois que tout fonctionne correctement, vous pouvez automatiser l'ensemble du processus en utilisant un pipeline CI/CD pour déployer et tester l'infrastructure à chaque modification du code.
+- Une fois que tout fonctionne correctement, vous pouvez automatiser l'ensemble du processus en utilisant une pipeline CI/CD pour déployer et tester l'infrastructure à chaque modification du code.
 ***Il faut bien s'assurez que vous éffectuer toutes les modifications selon votre environemment avant de tester votre infrastructure.***
 
+- Assurez-vous que les ***Scripts*** sont exécutables
+    ```bash
+    chmod +x ../../*.sh   # ../.. = Path des scripts que l'on veut exécuter
+    ```
 
 ## Appel aux contributeurs.
 Je cherche des contributeurs passionnés: DevOps, ingénieurs systèmes, développeurs backend, experts en monitoring et logging… 
