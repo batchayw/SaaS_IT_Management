@@ -1,0 +1,20 @@
+name: Monitoring CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  monitoring:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Deploy monitoring stack
+        run: |
+          ansible-playbook -i ansible/inventory/hosts.ini ansible/playbooks/setup_monitoring.yml

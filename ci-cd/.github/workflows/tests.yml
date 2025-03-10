@@ -1,0 +1,28 @@
+name: Tests CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run test scripts
+        run: |
+          ./ci-cd/test-scripts/check_freeipa.sh
+          ./ci-cd/test-scripts/check_foreman.sh
+          ./ci-cd/test-scripts/check_openstack.sh
+          ./ci-cd/test-scripts/check_ovirt.sh
+          ./ci-cd/test-scripts/check_okd.sh
+          ./ci-cd/test-scripts/check_monitoring.sh
+          ./ci-cd/test-scripts/check_logging.sh
+          ./ci-cd/test-scripts/check_security.sh
+          ./ci-cd/test-scripts/check_ci_cd.sh

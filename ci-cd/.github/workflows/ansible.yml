@@ -1,0 +1,30 @@
+name: Ansible CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  ansible:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Ansible
+        run: sudo apt-get install -y ansible
+
+      - name: Run Ansible playbooks
+        run: |
+          ansible-playbook -i ansible/inventory/hosts.ini ansible/playbooks/setup_freeipa.yml
+          ansible-playbook -i ansible/inventory/hosts.ini ansible/playbooks/setup_foreman.yml
+          ansible-playbook -i ansible/inventory/hosts.ini ansible/playbooks/setup_openstack.yml
+          ansible-playbook -i ansible/inventory/hosts.ini ansible/playbooks/setup_ovirt.yml
+          ansible-playbook -i ansible/inventory/hosts.ini ansible/playbooks/setup_okd.yml
+          ansible-playbook -i ansible/inventory/hosts.ini ansible/playbooks/setup_monitoring.yml
+          ansible-playbook -i ansible/inventory/hosts.ini ansible/playbooks/setup_logging.yml
+          ansible-playbook -i ansible/inventory/hosts.ini ansible/playbooks/setup_security.yml

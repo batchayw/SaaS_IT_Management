@@ -1,0 +1,21 @@
+name: Security CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run security checks
+        run: |
+          ansible-playbook -i ansible/inventory/hosts.ini ansible/playbooks/setup_security.yml
+          ./ci-cd/test-scripts/check_security.sh
